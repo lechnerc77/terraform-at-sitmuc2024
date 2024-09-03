@@ -4,7 +4,10 @@
 resource "random_uuid" "uuid" {}
 
 locals {
-  subaccount_domain = lower(replace("${var.subaccount_domain_prefix}-${random_uuid.uuid.result}", "_", "-"))
+  subaccount_domain = lower(replace("${var.stage}-${var.subaccount_domain_prefix}-${random_uuid.uuid.result}", "_", "-"))
+  subaccount_labels = {
+    "stage" = toset([var.stage])
+  }
 }
 
 # ------------------------------------------------------------------------------------------------------
@@ -14,6 +17,7 @@ resource "btp_subaccount" "sa_build" {
   name      = var.subaccount_name
   subdomain = local.subaccount_domain
   region    = lower(var.region)
+  labels    = local.subaccount_labels
 }
 
 # ------------------------------------------------------------------------------------------------------

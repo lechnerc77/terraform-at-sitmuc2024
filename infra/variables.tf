@@ -9,7 +9,6 @@ variable "subaccount_domain_prefix" {
   default     = "sitMUC2024-TF"
 }
 
-
 variable "subaccount_name" {
   type        = string
   description = "The subaccount name."
@@ -20,6 +19,12 @@ variable "region" {
   type        = string
   description = "The region of the subaccount."
   default     = "us10"
+}
+
+variable "stage" {
+  type        = string
+  description = "The stage of the subaccount."
+  default     = "dev"
 }
 
 variable "build_code_admins" {
