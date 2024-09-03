@@ -48,7 +48,7 @@ jobs:
           export ARM_ACCESS_KEY=${{ secrets.ARM_ACCESS_KEY }}
           export BTP_USERNAME=${{ secrets.BTP_USERNAME }}
           export BTP_PASSWORD=${{ secrets.BTP_PASSWORD }}
-          terraform -chdir=${{ env.PATH_TO_TFSCRIPT }} plan -var 'globalaccount=${{ secrets.GLOBALACCOUNT }}' -var 'build_code_admins=${{ secrets.USERLIST }}' -var 'build_code_developers=${{ secrets.USERLIST }}' -auto-approve -no-color -no-color --out tfplan.binary
+          terraform -chdir=${{ env.PATH_TO_TFSCRIPT }} plan -var 'globalaccount=${{ secrets.GLOBALACCOUNT }}' -var 'build_code_admins=${{ secrets.USERLIST }}' -var 'build_code_developers=${{ secrets.USERLIST }}' -no-color --out tfplan.binary
           terraform -chdir=${{ env.PATH_TO_TFSCRIPT }} show -json tfplan.binary > tfplan.json
 
       - name: Execute OPA policy
