@@ -4,14 +4,16 @@
 	"features": {
 		"ghcr.io/devcontainers/features/terraform:1": {},
 		"ghcr.io/devcontainers-contrib/features/terramate:1": {},
-		"ghcr.io/devcontainers/features/github-cli:1": {}
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/dhoeric/features/opa:1": {}
 	},
 	"customizations": {
 		"vscode": {
 			"settings": {},
 			"extensions": [
 				"HashiCorp.terraform",
-				"mineiros.terramate"
+				"mineiros.terramate",
+				"tsandall.opa"
 			]
 		},
 		"codespaces": {}
