@@ -1,0 +1,23 @@
+{
+	"name": "Terrraform and Terramate with SAP BTP",
+	"image": "mcr.microsoft.com/devcontainers/base:debian",
+	"features": {
+		"ghcr.io/devcontainers/features/terraform:1": {},
+		"ghcr.io/devcontainers-contrib/features/terramate:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"HashiCorp.terraform",
+				"mineiros.terramate"
+			]
+		},
+		"codespaces": {}
+	},
+	"hostRequirements": {
+		"memory": "4gb"
+	},
+	"remoteUser": "vscode"
+}
