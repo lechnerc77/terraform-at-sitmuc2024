@@ -84,4 +84,4 @@ num_modifies[resource_type] := num if {
 	all := resources[resource_type]
 	modifies := [res | res := all[_]; res.change.actions[_] == "update"]
 	num := count(modifies)
-}∏
+}
