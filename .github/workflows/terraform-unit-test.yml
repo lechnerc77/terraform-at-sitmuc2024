@@ -1,0 +1,31 @@
+name: Terraform Unit Tests
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+  workflow_dispatch:
+
+jobs:
+  terraform-validate:
+    name: Validate Syntax of Terraform Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+          terraform_version: latest
+
+      - name: Execute Unit Tests
+        shell: bash
+        run: |
+          cd ./infra
+          terraform init -backend=false
+          terraform test -test-directory=unit-tests
