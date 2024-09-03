@@ -55,8 +55,8 @@ jobs:
         id: execute_opa
         shell: bash
         run: |
-          autoexec=$(opa exec --decision terraform/analysis/autoexec --bundle policy/ tfplan.json | jq '.result[].result')
-          score=$(opa exec --decision terraform/analysis/score --bundle policy/ tfplan.json | jq '.result[].result')
+          autoexec=$(opa exec --decision terraform/analysis/autoexec --bundle policies/ tfplan.json | jq '.result[].result')
+          score=$(opa exec --decision terraform/analysis/score --bundle policies/ tfplan.json | jq '.result[].result')
           echo "Automatic execution possible (true/false): ${autoexec}"
           echo "Score of change: ${score}"
 
