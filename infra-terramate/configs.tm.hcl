@@ -4,5 +4,5 @@ globals "terraform" "providers" "btp" {
 }
 
 globals "terraform" "modules" "btp_buildcode_module" {
-  source = "../../modules/build_code/"
+  source = "../../../modules/build_code/"
 }
