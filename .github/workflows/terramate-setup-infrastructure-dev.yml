@@ -37,7 +37,7 @@ jobs:
         shell: bash
         run: |
           export export ARM_ACCESS_KEY=${{ secrets.ARM_ACCESS_KEY }}
-          terramate run --tags dev terraform init terraform -chdir=${{ env.PATH_TO_TFSCRIPT }} init -no-color
+          terramate run --tags dev terraform -chdir=${{ env.PATH_TO_TFSCRIPT }} init -no-color
 
       - name: Apply Terraform
         id: terraform_apply
