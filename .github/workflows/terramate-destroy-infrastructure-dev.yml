@@ -1,4 +1,4 @@
-name: Destroy SAP Build Code Setup via Terramate
+name: TM -Destroy SAP Build Code Setup
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ env:
 
 jobs:
   execute_base_setuup:
-    name: BTP Sample Teardown
+    name: BTP Sample Teardown (Terramate)
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository

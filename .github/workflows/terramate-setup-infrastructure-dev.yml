@@ -1,4 +1,4 @@
-name: SAP Build Code Setup via Terramate
+name: TM - SAP Build Code Setup
 
 on:
   #  push:
