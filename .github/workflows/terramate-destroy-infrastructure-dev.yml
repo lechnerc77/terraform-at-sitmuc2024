@@ -34,7 +34,7 @@ jobs:
         shell: bash
         run: |
           export export ARM_ACCESS_KEY=${{ secrets.ARM_ACCESS_KEY }}
-          terramate run --tags dev terraform init -no-color
+          terramate run -X --tags dev terraform init -no-color
 
       - name: Destroy Infrastructure
         id: terraform_apply
@@ -43,4 +43,4 @@ jobs:
           export ARM_ACCESS_KEY=${{ secrets.ARM_ACCESS_KEY }}
           export BTP_USERNAME=${{ secrets.BTP_USERNAME }}
           export BTP_PASSWORD=${{ secrets.BTP_PASSWORD }}
-          terramate run --tags dev terraform destroy -var 'globalaccount=${{ secrets.GLOBALACCOUNT }}' -var 'build_code_admins=${{ secrets.USERLIST }}' -var 'build_code_developers=${{ secrets.USERLIST }}' -auto-approve -no-color
+          terramate run -X --tags dev terraform destroy -var 'globalaccount=${{ secrets.GLOBALACCOUNT }}' -var 'build_code_admins=${{ secrets.USERLIST }}' -var 'build_code_developers=${{ secrets.USERLIST }}' -auto-approve -no-color
