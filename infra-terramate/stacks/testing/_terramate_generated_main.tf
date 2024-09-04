@@ -22,7 +22,6 @@ module "build_code" {
   application_studio_extension_deployer = var.build_code_developers
   build_code_admins                     = var.build_code_admins
   build_code_developers                 = var.build_code_developers
-  count                                 = "0"
   source                                = "../../../modules/build_code/"
   subaccount_id                         = btp_subaccount.sa_build.id
 }

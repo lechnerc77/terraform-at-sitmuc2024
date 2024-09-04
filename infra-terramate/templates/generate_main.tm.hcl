@@ -32,7 +32,6 @@ generate_hcl "_terramate_generated_main.tf" {
     # ------------------------------------------------------------------------------------------------------
 
     module "build_code" {
-      count  = tm_ternary(tm_contains(terramate.stack.tags, "dev"), "1", "0")
       source = "${global.terraform.modules.btp_buildcode_module.source}"
 
       subaccount_id = btp_subaccount.sa_build.id
