@@ -30,7 +30,6 @@ generate_hcl "_terramate_generated_main.tf" {
     # ------------------------------------------------------------------------------------------------------
     # Setup of SAP Build Code via module
     # ------------------------------------------------------------------------------------------------------
-
     module "build_code" {
       source = "${global.terraform.modules.btp_buildcode_module.source}"
 
