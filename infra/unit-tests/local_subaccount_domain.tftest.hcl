@@ -1,4 +1,11 @@
-mock_provider "btp" {}
+mock_provider "btp" {
+  mock_resource "btp_subaccount" {
+    defaults = {
+      id = "3643fadf-b04c-43f2-9345-a1f18cf7d902"
+    }
+  }
+}
+
 
 override_module {
   target = module.build_code
@@ -20,7 +27,7 @@ run "validate_project_subaccount_domain" {
 
   assert {
     condition     = can(regex("^[^A-Z]*$", local.subaccount_domain))
-    error_message = "Invlaid format of subaccount subdomain."
+    error_message = "Invalid format of subaccount subdomain."
   }
 
   assert {
