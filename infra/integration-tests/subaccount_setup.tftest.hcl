@@ -12,12 +12,12 @@ run "test_successful_subaccount_creation" {
   }
 
   assert {
-    condition     =  length(module.build_code.url_sap_biz_app_studio) > 0
+    condition     = length(module.build_code.url_sap_biz_app_studio) > 0
     error_message = "The URL of SAP Business Application Studio is empty."
   }
 
   assert {
-    condition     =  length(module.build_code.url_sap_build_code) > 0
+    condition     = length(module.build_code.url_sap_build_code) > 0
     error_message = "The URL of SAP Build Code is empty."
   }
 }
