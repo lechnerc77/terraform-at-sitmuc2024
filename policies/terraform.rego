@@ -15,7 +15,7 @@ blast_radius := 40
 weights := {
 	"btp_subaccount": {"delete": 100, "create": 10, "modify": 1},
 	"btp_subaccount_entitlement": {"delete": 10, "create": 1, "modify": 5},
-  "btp_subaccount_subscription":{"delete": 5, "create": 1, "modify": 3},
+	"btp_subaccount_subscription": {"delete": 5, "create": 1, "modify": 3},
 }
 
 # Consider exactly these resource types in calculations
@@ -24,8 +24,6 @@ resource_types := {"btp_subaccount", "btp_subaccount_entitlement", "btp_subaccou
 #########
 # Policy
 #########
-
-# Authorization holds if score for the plan is acceptable and no changes are made to IAM
 default autoexec := false
 
 autoexec if {
@@ -40,7 +38,7 @@ score := s if {
 		del := crud.delete * num_deletes[resource_type]
 		new := crud.create * num_creates[resource_type]
 		mod := crud.modify * num_modifies[resource_type]
-		x := del + new + mod
+		x := (del + new) + mod
 	]
 	s := sum(all)
 }
