@@ -24,7 +24,7 @@ variable "region" {
 variable "stage" {
   type        = string
   description = "The stage of the subaccount."
-  default     = "DEV"
+  default     = "SBX"
 }
 
 variable "build_code_admins" {
