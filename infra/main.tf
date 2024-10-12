@@ -17,14 +17,14 @@ resource "btp_subaccount" "sa_build" {
   name      = var.subaccount_name
   subdomain = local.subaccount_domain
   region    = lower(var.region)
-  labels    = local.subaccount_labels
+  labels     = local.subaccount_labels
 }
 
-#resource "btp_subaccount_entitlement" "alert_notification_service__free" {
-#  subaccount_id = btp_subaccount.sa_build.id
-#  service_name  = "alert-notification"
-#  plan_name     = "free"
-#}
+resource "btp_subaccount_entitlement" "alert_notification_service__free" {
+  subaccount_id = btp_subaccount.sa_build.id
+  service_name  = "alert-notification"
+  plan_name     = "free"
+}
 
 # ------------------------------------------------------------------------------------------------------
 # Setup of SAP Build Code via module
