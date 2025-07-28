@@ -24,7 +24,7 @@ jobs:
 
       - name: Setup Terramate
         id: setup_terramate
-        uses: terramate-io/terramate-action@v2
+        uses: terramate-io/terramate-action@v3
         with:
           use_wrapper: "false"
           version: latest
